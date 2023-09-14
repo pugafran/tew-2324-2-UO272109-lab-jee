@@ -30,7 +30,9 @@ public class HolaMundoServlet extends HttpServlet {
     public void doGet (HttpServletRequest request, HttpServletResponse response)
     		 throws IOException, ServletException {
     	
-    	
+    		
+    	 /*
+    	 	 
     		 System.out.println("AAAAAAAA");
     		 response.setCharacterEncoding("UTF-8");
     		 response.setContentType("text/html");
@@ -40,8 +42,24 @@ public class HolaMundoServlet extends HttpServlet {
     		 out.println("<BODY>");
     		 out.println("Bienvenido a mi primera página web!");
     		 out.println("</BODY></HTML>");
-    		}
+    		 
+    	*/
+    	 String nombre = (String) request.getParameter("NombreUsuario");
+    	 response.setCharacterEncoding("UTF-8");
+    	 response.setContentType("text/html");
+    	 PrintWriter out = response.getWriter();
+    	 out.println("<HTML>");
+    	 out.println("<HEAD><TITLE>Hola Mundo!</TITLE></HEAD>");
+    	 out.println("<BODY>");
 
+    	 if ( nombre != null ){
+    	 out.println("<br>Hola "+nombre+"<br>");
+    	 }
+    	 out.println("Bienvenido a mi primera página Web!");
+    	 out.println("</BODY></HTML>");
+    		 
+    		}
+			
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
