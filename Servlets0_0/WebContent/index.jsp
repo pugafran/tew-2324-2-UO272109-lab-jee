@@ -15,14 +15,19 @@ if (request.getParameter("NombreUsuario") != null) {
 <h1>Bienvenido a mi primera página web!</h1>
 
 <br>
-<%
+
+<%--
  Integer contador = (Integer)application.getAttribute("contador");
  if ( contador == null ){
  contador = new Integer(0);
  }
  application.setAttribute("contador",new Integer(contador.intValue()+1));
-%>
-<%=contador%> visitas
+--%>
+
+<jsp:useBean id="contador" class="com.tew.beans.Counter"
+ scope="application"/>
+<jsp:getProperty property="incrementedValue" name="contador"/> visitas
+
 
 </body>
 </html>
