@@ -52,6 +52,15 @@ public class HolaMundoServlet extends HttpServlet {
 
 		Vector listado = (Vector)request.getSession().getAttribute("listado");
 		
+		Integer contador= (Integer) getServletContext().getAttribute("contador");
+		if ( contador == null ){
+		 contador = new Integer(0);
+		}
+		// Establecemos el contador como atributo del context bajo el nombre
+		// contador. En caso de que ya existiera, sobreescribiría la referencia
+		// existente con la nueva.
+		getServletContext().setAttribute("contador",new Integer(contador.intValue()+1));
+		
 		if (listado == null){
 			listado = new Vector();
 		}
@@ -81,6 +90,10 @@ public class HolaMundoServlet extends HttpServlet {
 		
 		out.println("<br><br>");
 		out.println("<a href=\"index.html\">Volver</a>");
+		
+		out.println("<br><br>" + contador +" visitas");
+
+		
 		out.println("</BODY></HTML>");
 	}
 
