@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Vector;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,55 +47,30 @@ public class HolaMundoServlet extends HttpServlet {
 		 */
 		
 
-		PrintWriter out = response.getWriter();
-		
-		String nombre = (String) request.getParameter("NombreUsuario");
-
-		Vector listado = (Vector)request.getSession().getAttribute("listado");
-		
-		Integer contador= (Integer) getServletContext().getAttribute("contador");
-		if ( contador == null ){
-		 contador = new Integer(0);
-		}
-		// Establecemos el contador como atributo del context bajo el nombre
-		// contador. En caso de que ya existiera, sobreescribiría la referencia
-		// existente con la nueva.
-		getServletContext().setAttribute("contador",new Integer(contador.intValue()+1));
-		
-		if (listado == null){
-			listado = new Vector();
-		}
-		
-		if ( nombre != null ){
-			out.println("<br>Hola "+nombre+"<br>");
-			listado.addElement(nombre);
-		}
-		
-		request.getSession().setAttribute("listado",listado);
-		
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html");
-		out.println("<HTML>");
-		out.println("<HEAD><TITLE>Hola Mundo!</TITLE></HEAD>");
-		out.println("<BODY>");
-		out.println("Bienvenido a mi primera página Web!");
-		
-
-
-
-		out.println("<br>");
-		out.println("Contigo, hoy me han visitado:<br>");
-		for ( int i = 0 ; i < listado.size() ; i++ ){
-			out.println("<br>"+(String)listado.elementAt(i));
-		}
-		
-		out.println("<br><br>");
-		out.println("<a href=\"index.html\">Volver</a>");
-		
-		out.println("<br><br>" + contador +" visitas");
-
-		
-		out.println("</BODY></HTML>");
+	    String nombre = (String) request.getParameter("NombreUsuario");
+	    
+	    Vector<String> listado = (Vector<String>) request.getSession().getAttribute("listado");
+	    
+	    Integer contador= (Integer) getServletContext().getAttribute("contador");
+	    if (contador == null) {
+	        contador = new Integer(0);
+	    }
+	    
+	    getServletContext().setAttribute("contador", new Integer(contador.intValue() + 1));
+	    
+	    if (listado == null) {
+	        listado = new Vector<String>();
+	    }
+	    
+	    if (nombre != null) {
+	        listado.add(nombre);
+	        request.setAttribute("NombreUsuario", nombre);
+	    }
+	    
+	    request.getSession().setAttribute("listado", listado);
+	    
+	    RequestDispatcher dispatcher = getServletContext().getNamedDispatcher("HolaMundoVista");
+	    dispatcher.forward(request, response);
 	}
 
 	/**
