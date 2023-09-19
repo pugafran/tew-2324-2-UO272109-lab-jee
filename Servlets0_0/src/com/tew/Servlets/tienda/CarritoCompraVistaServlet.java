@@ -33,7 +33,7 @@ public class CarritoCompraVistaServlet extends HttpServlet {
         HashMap<String, Integer> carrito = (HashMap<String, Integer>) request.getSession().getAttribute("carrito");
 
         if(carrito == null) {
-            carrito = new HashMap<>();
+            carrito = new HashMap<String, Integer>();
             request.getSession().setAttribute("carrito", carrito);
         }
 
