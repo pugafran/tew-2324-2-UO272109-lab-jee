@@ -43,6 +43,28 @@
 			<from-outcome>editar</from-outcome>
 			<to-view-id>/editForm.xhtml</to-view-id>
 		</navigation-case>
+
+
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/editForm.xhtml</from-view-id>
+
+		<navigation-case>
+			<from-action>#{controller.edit}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/listado.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>/altaForm.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controller.salva}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/listado.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 
 </faces-config>
