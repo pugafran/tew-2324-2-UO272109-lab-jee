@@ -86,6 +86,24 @@ public class Factories {
 			return "error";
 		}
 	}
-      
+    
+	
+	public String baja() {
+	    AlumnosService service;
+	    try {
+	        // Acceso a la implementación de la capa de negocio
+	        // a través de la factoría
+	        service = Factories.services.createAlumnosService();
+	        // Eliminamos el alumno 
+	        service.deleteAlumno(alumno.getId());
+	        // Actualizamos el javabean de alumnos inyectado en la tabla
+	        alumnos = (Alumno [])service.getAlumnos().toArray(new Alumno[0]);
+	        return "exito";
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "error";
+	    }
+	}
+
 
 }
