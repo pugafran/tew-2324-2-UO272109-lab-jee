@@ -9,6 +9,12 @@
 		<param-value>Development</param-value>
 	</context-param>
 
+	<error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/loadingError.xhtml</location>
+	</error-page>
+	
+
 	<display-name>gestioneitorv1_0</display-name>
 	<welcome-file-list>
 		<welcome-file>faces/index.xhtml</welcome-file>
