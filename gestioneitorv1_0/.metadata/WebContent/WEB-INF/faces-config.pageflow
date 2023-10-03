@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16957387864900" configfile="/gestioneitorv1_0/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="380" id="pf16957392822381" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" outlinks="pf16957392822392 pf16957392822393" inlinks="pf16962937504044" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="listado.xhtml" x="554" y="380" id="pf16957392822394" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf16961671330986 pf16962900518273" inlinks="pf16957392822392 pf16961671330987 pf16961671330988 pf16962900518273" path="/listado.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listado.xhtml" x="554" y="380" id="pf16957392822394" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf16961671330986 pf16962900518273" inlinks="pf16957392822392 pf16961671330987 pf16961671330988 pf16962900518273" path="/listado.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="altaForm.xhtml" x="338" y="178" id="pf16957392822395" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf16961671330988" inlinks="pf16957392822393" path="/altaForm.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="editForm.xhtml" id="pf16961671330989" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf16961671330987" inlinks="pf16961671330986" path="/editForm.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="*" id="pf16962937504045" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf16962937504044" path="*"/>
   <links id="pf16957392822392" target="pf16957392822394" source="pf16957392822381" outcome="exito" fromaction="#{controller.listado}"/>
   <links id="pf16957392822393" target="pf16957392822395" source="pf16957392822381" outcome="alta"/>
   <links id="pf16961671330986" target="pf16961671330989" source="pf16957392822394" outcome="editar"/>
-  <links id="pf16961671330987" target="pf16957392822394" source="pf16961671330989" outcome="exito" fromaction="#{controller.edit}"/>
+  <links id="pf16961671330987" target="pf16957392822394" source="pf16961671330989" outcome="exito" fromaction="#{controller.salva}"/>
   <links id="pf16961671330988" target="pf16957392822394" source="pf16957392822395" outcome="exito" fromaction="#{controller.salva}"/>
   <links id="pf16962900518273" target="pf16957392822394" source="pf16957392822394" outcome="exito" fromaction="#{controller.baja}"/>
   <links id="pf16962937504044" target="pf16957392822381" source="pf16962937504045" outcome="home"/>

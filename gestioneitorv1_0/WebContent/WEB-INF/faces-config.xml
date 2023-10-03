@@ -61,7 +61,7 @@
 		<from-view-id>/editForm.xhtml</from-view-id>
 
 		<navigation-case>
-			<from-action>#{controller.edit}</from-action>
+			<from-action>#{controller.salva}</from-action>
 			<from-outcome>exito</from-outcome>
 			<to-view-id>/listado.xhtml</to-view-id>
 		</navigation-case>

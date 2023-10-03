@@ -69,25 +69,7 @@ public class BeanAlumnos implements Serializable{
 			return "error";
 		}
 	}
-	public String edit() {
-		AlumnosService service;
-		try {
-			// Acceso a la implementacion de la capa de negocio
-			// a través de la factoría
-			
-			service = Factories.services.createAlumnosService();
-			alumno = (BeanAlumno) service.findById(alumno.getId());
-			service.updateAlumno(alumno);
 
-			alumnos = (Alumno [])service.getAlumnos().toArray(new Alumno[0]);
-
-			return "exito";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "error";
-		}
-
-	}
 
 	public String salva() {
 		AlumnosService service;
@@ -112,7 +94,7 @@ public class BeanAlumnos implements Serializable{
 	}
 
 
-	public String baja(BeanAlumno alumno) {
+	public String baja(Alumno alumno) {
 		AlumnosService service;
 		try {
 			// Acceso a la implementación de la capa de negocio
