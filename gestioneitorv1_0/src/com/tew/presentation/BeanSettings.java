@@ -6,6 +6,8 @@ import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import com.tew.model.Alumno;
+
 @ManagedBean
 @SessionScoped
 public class BeanSettings implements Serializable{
@@ -13,6 +15,9 @@ public class BeanSettings implements Serializable{
 	private static final Locale ENGLISH = new Locale("en");
 	private static final Locale SPANISH = new Locale("es");
 	private Locale locale = new Locale("es");
+	@ManagedProperty(value="#{alumno}")
+	private BeanAlumno alumno;
+
 	public Locale getLocale() { 
 		/*Habria que cambiar algo de código para coger locale
 		del navegador la primera vez que se accede a getLocale(), de momento el idioma de
@@ -32,4 +37,19 @@ public class BeanSettings implements Serializable{
 
 
 
-	}}
+	}
+	
+	
+	
+	public void setAlumno(Alumno alumno) {
+		 this.alumno = (BeanAlumno) alumno;
+		}
+		public BeanAlumno getAlumno(){
+		 return this.alumno;
+		}
+
+	
+
+
+
+}
