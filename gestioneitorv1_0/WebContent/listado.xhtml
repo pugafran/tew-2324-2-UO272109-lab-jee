@@ -82,9 +82,15 @@
 					</p:commandLink>
 				</p:column>
 			</p:dataTable>
-			<div class="footer">
-				<h:commandLink value="#{msgs.enlaceCasa}" action="home" />
-			</div>
+			<nav class="footer">
+				<h:commandLink value="#{msgs.enlaceCasa}" action="home" style="margin-right: 20px;" />
+				<h:commandLink value="#{msgs.enlaceIdiomaES}   🇪🇸"
+						actionListener="#{settings.setSpanish}" style="margin-right: 10px;">
+				</h:commandLink>
+				<h:commandLink value="#{msgs.enlaceIdiomaEN}   🇬🇧"
+						actionListener="#{settings.setEnglish}">
+				</h:commandLink>
+			</nav>
 		</h:form>
 
 	</h:body>
