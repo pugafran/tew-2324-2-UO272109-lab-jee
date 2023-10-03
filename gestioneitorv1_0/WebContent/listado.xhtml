@@ -68,7 +68,7 @@
 				<p:column>
 					<f:facet name="header">#{msgs.tablaBaja}</f:facet>
 					<p:commandLink action="#{controller.baja(valumno)}" type="submit"
-						value="#{msgs.enlaceBaja}" immediate="true">
+						value="#{msgs.enlaceBaja}" immediate="true" actionListener="#{controller.iniciaAlumno}">
 						
 					</p:commandLink>
 				</p:column>

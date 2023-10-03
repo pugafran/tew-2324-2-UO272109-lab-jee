@@ -15,6 +15,7 @@ public class ErrorBean implements Serializable {
 
     private static final long serialVersionUID = 10L;
     
+    
     private final ByteArrayOutputStream baos = new ByteArrayOutputStream();
     private final PrintStream originalStderr = System.err;
     private final PrintStream customStream = new PrintStream(baos);

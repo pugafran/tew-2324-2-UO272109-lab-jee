@@ -10,6 +10,6 @@
   <links id="pf16961671330986" target="pf16961671330989" source="pf16957392822394" outcome="editar"/>
   <links id="pf16961671330987" target="pf16957392822394" source="pf16961671330989" outcome="exito" fromaction="#{controller.salva}"/>
   <links id="pf16961671330988" target="pf16957392822394" source="pf16957392822395" outcome="exito" fromaction="#{controller.salva}"/>
-  <links id="pf16962900518273" target="pf16957392822394" source="pf16957392822394" outcome="exito" fromaction="#{controller.baja}"/>
+  <links id="pf16962900518273" target="pf16957392822394" source="pf16957392822394" fromaction="#{controller.baja}"/>
   <links id="pf16962937504044" target="pf16957392822381" source="pf16962937504045" outcome="home"/>
 </pageflow:Pageflow>
