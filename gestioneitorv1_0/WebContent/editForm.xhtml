@@ -1,23 +1,75 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-       xmlns:f="http://java.sun.com/jsf/core"
-       xmlns:p="http://primefaces.org/ui">
-<h:head>
-<title>Cabecera</title> 
-</h:head>
-<h:body>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{settings.locale}">
+	<h:head>
+		<title>“#{msgs.tituloOperacionEdicion}”</title>
+		<style>
+		.footer {
+			position: fixed;
+			bottom: 0;
+			width: 100%; /* Ocupa todo el ancho horizontal */
+			height: 60px; /* Altura del footer */
+			background-color: #F5F5F5;
+			border-top: 3px solid #E0E0E0;
+			display: flex; /* Activar flexbox */
+			justify-content: center; /* Centrar horizontalmente */
+			align-items: center; /* Centrar verticalmente */
+		}
+		
+		.content-wrapper {
+			padding-bottom: 60px; /* Tamaño de la altura del footer */
+			min-height: 100%; /* Ocupa al menos el 100% del alto de la ventana */
+			box-sizing: border-box;
+		}
+		
+		.footer a {
+			display: inline-block;
+			color: #2B2B2B; /* Color de texto gris oscuro para contraste */
+			text-decoration: none;
+			font-weight: bold; /* Texto en negrita */
+			font-size: 20px;
+			padding: 10px 25px;
+			border-radius: 25px; /* Bordes redondeados */
+			background-color: #E0E0E0; /* Fondo gris */
+			box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+			/* Sombra sutil para darle un aspecto elevado */
+			transition: background-color 0.3s, transform 0.3s;
+			/* Transiciones suaves al pasar el ratón */
+		}
+		
+		.footer a:hover {
+			background-color: #D5D5D5;
+			/* Fondo gris un poco más oscuro al pasar el ratón */
+			transform: translateY(-2px);
+			/* Efecto de "levantamiento" al pasar el ratón */
+		}
+		
+		.footer a:active {
+			transform: translateY(0px); /* Efecto de "presionado" al hacer clic */
+		}
+	</style>
+	</h:head>
+		
+	<h:body>
 
-	<h:form>
-		<p:panelGrid columns="2">
- NOMBRE: <p:inputText value="#{controller.alumno.nombre}" />
- APELLIDOS: <p:inputText value="#{controller.alumno.apellidos}" />
- USERID: <p:inputText value="#{controller.alumno.iduser}" />
- EMAIL: <p:inputText value="#{controller.alumno.email}" />
-		</p:panelGrid>
-		<p:commandButton value="Editar" action="#{controller.edit}" />
-	</h:form>
+		<h:form>
+			<p:panelGrid columns="2">
+ #{msgs.nombre} <p:inputText value="#{controller.alumno.nombre}" />
+ #{msgs.apellidos} <p:inputText value="#{controller.alumno.apellidos}" />
+ #{msgs.userid} <p:inputText value="#{controller.alumno.iduser}" />
+ #{msgs.correo} <p:inputText value="#{controller.alumno.email}" />
+			</p:panelGrid>
+			<p:commandButton value="#{msgs.enlaceEditar}"
+				action="#{controller.edit}" />
+			<div class="footer">
+				<h:commandLink value="#{msgs.enlaceCasa}" action="home" />
+			</div>
+		</h:form>
 
-</h:body>
+	</h:body>
+</f:view>
 </html>
