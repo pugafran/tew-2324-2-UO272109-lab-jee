@@ -57,23 +57,62 @@
 	<h:body>
 
 		<h:form>
-			<p:panelGrid columns="2">
- #{msgs.nombre} <p:inputText value="#{controller.alumno.nombre}" />
- #{msgs.apellidos} <p:inputText value="#{controller.alumno.apellidos}" />
- #{msgs.userid} <p:inputText value="#{controller.alumno.iduser}" />
- #{msgs.correo} <p:inputText value="#{controller.alumno.email}" />
+<p:panelGrid columns="2" styleClass="formTable">
+ #{msgs.nombre}
+ <h:panelGroup>
+					<p:inputText value="#{alumno.nombre}" required="true"
+						requiredMessage="#{msgs.formAlta_nombre_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_nombre_validatorMessage}"
+						id="nombre">
+						<f:validateLength maximum="20" />
+					</p:inputText>
+					<p:message for="nombre" />
+				</h:panelGroup>
+ #{msgs.apellidos}
+ <h:panelGroup>
+					<p:inputText value="#{alumno.apellidos}" required="true"
+						requiredMessage="#{msgs.formAlta_apellidos_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_apellidos_validatorMessage}"
+						id="apellidos">
+						<f:validateLength maximum="40" />
+					</p:inputText>
+					<p:message for="apellidos" />
+				</h:panelGroup>
+ #{msgs.userid}
+ <h:panelGroup>
+					<p:inputText value="#{alumno.iduser}" required="true"
+						requiredMessage="#{msgs.formAlta_iduser_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_iduser_validatorMessage}"
+						id="iduser">
+						<f:validateLength minimum="5" maximum="8" />
+					</p:inputText>
+					<p:message for="iduser" />
+				</h:panelGroup>
+ #{msgs.correo}
+ <h:panelGroup>
+					<p:inputText value="#{alumno.email}" required="true"
+						requiredMessage="#{msgs.formAlta_correo_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_correo_validatorMessage}"
+						id="correo">
+						<f:validateRegex pattern=".+@.+\.[a-z]+" />
+					</p:inputText>
+					<p:message for="correo" />
+				</h:panelGroup>
 			</p:panelGrid>
 			<p:commandButton value="#{msgs.enlaceEditar}"
-				action="#{controller.salva}" />
-			<nav class="footer"> <h:commandLink value="#{msgs.enlaceCasa}"
-				action="home" style="margin-right: 20px;" /> <h:commandLink
-				value="#{msgs.enlaceIdiomaES}   🇪🇸"
+				action="#{controller.salva}" update="@form" />
+		</h:form>
+
+			<h:form>
+			<footer class="footer"> <h:commandLink
+				value="#{msgs.enlaceCasa}" action="home" style="margin-right: 20px;" />
+			<h:commandLink value="#{msgs.enlaceIdiomaES}   🇪🇸"
 				actionListener="#{settings.setSpanish}" style="margin-right: 10px;">
 			</h:commandLink> <h:commandLink value="#{msgs.enlaceIdiomaEN}   🇬🇧"
 				actionListener="#{settings.setEnglish}">
-			</h:commandLink> </nav>
+			</h:commandLink> </footer>
 		</h:form>
-
 	</h:body>
+
 </f:view>
 </html>
